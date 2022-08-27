@@ -14,7 +14,6 @@ public class Exe19 {
 		int finalInterval = entrada.nextInt();
 		int numeroDivisoes, countPrimos;
 		boolean ehPrimo;
-		float iOtimizado;
 		
 		numeroDivisoes = countPrimos = 0;
 		
@@ -22,8 +21,7 @@ public class Exe19 {
 		for (int i = 2; i < finalInterval; i++) {
 
 			ehPrimo = true;
-			iOtimizado = i/2f;
-			for (int j = 2; j < iOtimizado; j++) {
+			for (int j = 2; j < i; j++) {
 				
 				numeroDivisoes++;
 				if (i % j == 0) {
@@ -33,9 +31,8 @@ public class Exe19 {
 				
 			}
 			
-			if (ehPrimo && 2f != iOtimizado) {
+			if (ehPrimo) {
 				countPrimos++;
-				System.out.print(i + " ");
 			}
 			
 		}
