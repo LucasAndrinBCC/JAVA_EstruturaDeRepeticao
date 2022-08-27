@@ -42,18 +42,28 @@ public class Exe32 {
 			cidade.numeroVitimas = entrada.nextInt();
 			
 			if (first) {
-				
 				first = false;
-				cidadeMaior = cidadeMenor = cidade;
+				
+				cidadeMaior.cod = cidade.cod;
+				cidadeMaior.numeroVitimas = cidade.numeroVitimas;
+				cidadeMaior.numeroPasseio = cidade.numeroPasseio;
+				
+				cidadeMenor.cod = cidade.cod;
+				cidadeMenor.numeroVitimas = cidade.numeroVitimas;
+				cidadeMenor.numeroPasseio = cidade.numeroPasseio;
 				
 			} else {
 				if (cidade.numeroVitimas > cidadeMaior.numeroVitimas) {
 					
-					cidadeMaior = cidade;
+					cidadeMaior.cod = cidade.cod;
+					cidadeMaior.numeroVitimas = cidade.numeroVitimas;
+					cidadeMaior.numeroPasseio = cidade.numeroPasseio;
 					
-				} else if (cidade.numeroVitimas < cidadeMaior.numeroPasseio) {
+				} else if (cidade.numeroVitimas < cidadeMenor.numeroVitimas) {
 					
-					cidadeMenor = cidade;
+					cidadeMenor.cod = cidade.cod;
+					cidadeMenor.numeroVitimas = cidade.numeroVitimas;
+					cidadeMenor.numeroPasseio = cidade.numeroPasseio;
 					
 				}
 			}

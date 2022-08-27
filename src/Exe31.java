@@ -29,12 +29,18 @@ public class Exe31 {
 			
 			if (first) {
 				first = false;
-				alunoMaior = alunoMenor = aluno;
+				alunoMaior.numero = aluno.numero;
+				alunoMaior.altura = aluno.altura;
+				
+				alunoMenor.numero = aluno.numero;
+				alunoMenor.altura = aluno.altura;
 			} else {
 				if (aluno.altura > alunoMaior.altura) {
-					alunoMaior = aluno;
+					alunoMaior.numero = aluno.numero;
+					alunoMaior.altura = aluno.altura;
 				} else if (aluno.altura < alunoMenor.altura) {
-					alunoMenor = aluno;
+					alunoMenor.numero = aluno.numero;
+					alunoMenor.altura = aluno.altura;
 				}
 			}
 		}

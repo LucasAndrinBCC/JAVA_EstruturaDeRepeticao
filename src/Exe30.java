@@ -27,8 +27,10 @@ public class Exe30 {
 		
 		mediaAlturas = mediaPesos = 0f;
 		
-		Exe30 clienteMaior = new Exe30();
-		Exe30 clienteMenor = new Exe30();
+		Exe30 clienteMaisAlto = new Exe30();
+		Exe30 clienteMaisBaixo = new Exe30();
+		Exe30 clienteMaisGordo = new Exe30();
+		Exe30 clienteMaisMagro = new Exe30();
 		Exe30 cliente = new Exe30();
 		
 		do {
@@ -41,21 +43,41 @@ public class Exe30 {
 				
 				System.out.print("Entre com o seu peso: ");
 				cliente.peso = entrada.nextFloat();
-				
 				if (first) {
 					first = false;
-					clienteMaior = clienteMenor = cliente;
+					
+					clienteMaisAlto.cod = cliente.cod;
+					clienteMaisAlto.altura = cliente.altura;
+					clienteMaisAlto.peso = cliente.peso;
+					
+					clienteMaisBaixo.cod = cliente.cod;
+					clienteMaisBaixo.altura = cliente.altura;
+					clienteMaisBaixo.peso = cliente.peso;
+					
+					clienteMaisGordo.cod = cliente.cod;
+					clienteMaisGordo.altura = cliente.altura;
+					clienteMaisGordo.peso = cliente.peso;
+					
+					clienteMaisMagro.cod = cliente.cod;
+					clienteMaisMagro.altura = cliente.altura;
+					clienteMaisMagro.peso = cliente.peso;
 				} else {
-					if (cliente.altura > clienteMaior.altura) {
-						clienteMaior = cliente;
-					} else if (cliente.altura < clienteMenor.altura) {
-						clienteMenor = cliente;
+					if (cliente.altura > clienteMaisAlto.altura) {
+						clienteMaisAlto.cod = cliente.cod;
+						clienteMaisAlto.altura = cliente.altura;
+						clienteMaisAlto.peso = cliente.peso;
+					} else if (cliente.altura < clienteMaisBaixo.altura) {
+						clienteMaisBaixo.cod = cliente.cod;
+						clienteMaisBaixo.altura = cliente.altura;
+						clienteMaisBaixo.peso = cliente.peso;
 					}
 					
-					if (cliente.peso > clienteMaior.peso) {
-						clienteMaior = cliente;
-					} else if (cliente.peso < clienteMenor.peso) {
-						clienteMenor = cliente;
+					if (cliente.peso > clienteMaisGordo.peso) {
+						clienteMaisGordo.cod = cliente.cod;
+						clienteMaisGordo.altura = cliente.altura;
+						clienteMaisGordo.peso = cliente.peso;
+					} else if (cliente.peso < clienteMaisMagro.peso) {
+						clienteMaisMagro = cliente;
 					}
 				}
 				
@@ -71,15 +93,25 @@ public class Exe30 {
 		
 		System.out.println("Média de Alturas: " + mediaAlturas);
 		System.out.println("Média de Pesos: " + mediaPesos);
-		System.out.println("Maior Cliente {");
-		System.out.println("	Código: " + clienteMaior.cod);
-		System.out.println("	Altura: " + clienteMaior.altura);
-		System.out.println("	Peso: " + clienteMaior.peso);
+		System.out.println("Mais Alto {");
+		System.out.println("	Código: " + clienteMaisAlto.cod);
+		System.out.println("	Altura: " + clienteMaisAlto.altura);
+		System.out.println("	Peso: " + clienteMaisAlto.peso);
 		System.out.println("}");
-		System.out.println("Menor Cliente {");
-		System.out.println("	Código: " + clienteMenor.cod);
-		System.out.println("	Altura: " + clienteMenor.altura);
-		System.out.println("	Peso: " + clienteMenor.peso);
+		System.out.println("Mais Baixo {");
+		System.out.println("	Código: " + clienteMaisBaixo.cod);
+		System.out.println("	Altura: " + clienteMaisBaixo.altura);
+		System.out.println("	Peso: " + clienteMaisBaixo.peso);
+		System.out.println("}");
+		System.out.println("Mais Gordo {");
+		System.out.println("	Código: " + clienteMaisGordo.cod);
+		System.out.println("	Altura: " + clienteMaisGordo.altura);
+		System.out.println("	Peso: " + clienteMaisGordo.peso);
+		System.out.println("}");
+		System.out.println("Mais Magro {");
+		System.out.println("	Código: " + clienteMaisMagro.cod);
+		System.out.println("	Altura: " + clienteMaisMagro.altura);
+		System.out.println("	Peso: " + clienteMaisMagro.peso);
 		System.out.println("}");
 		
 		entrada.close();		
